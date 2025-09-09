@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
-
+#include "stack.h"
 
 #define MAX_TOKENS 1000
 
@@ -65,6 +65,24 @@ while (expr[pos] !='\0')
 }
     return count;
 }
+
+
+int precendence(char operator){
+    if(operator=='+' || operator == '-') return 1;
+    if(operator=='*' || operator == '/') return 2;
+    if(operator=='^') return 3;
+}
+
+int rightAssociative(char operator){
+    if(operator=='^') return 1;
+    else{
+        return 0;
+    }
+}
+
+
+
+
 
 
 int main() {
